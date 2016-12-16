@@ -6,12 +6,12 @@ What is it?
 
 Range Minimum Queries Offline (rmqo) is a powerful and flexible C++11
 library implementing an algorithm for answering a batch of RMQs in practice. 
-The theoretical time complexity of this algorithm is n + O(q log q) and the
-extra space used is O(q); where n is the size of the input array and q is the number
+The theoretical time complexity of this algorithm is <b>n + O(q log q)</b> and the
+extra space used is <b>O(q)</b>; where n is the size of the input array and q is the number
 of queries. We write <b>n</b> to stress that the number of operations per entry of the 
 input array should be a very small constant.
 
-Why RMQO?
+Why rmqo?
 --------
 
 Answering a small batch of RMQs is a core computational task in many real-world applications. 
