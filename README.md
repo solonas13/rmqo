@@ -36,6 +36,10 @@ make
 make install
 ```
 
+Usage
+--------
+
+Please check the `example-rmq.cc` file in examples.
 
 Examples: Answering RMQs or LCA queries
 --------
