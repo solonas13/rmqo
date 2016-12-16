@@ -61,7 +61,6 @@ Benchmark
 A simple program that uses rmqo library to answer a batch of <i>q</i> randomly generated RMQs in a randomly generated array of size <i>n</i>.
 ```
 cd bench
-
 make -f Makefile.rmq-bench.gcc
 ./rmq-bench 100000000 10000
 ```
