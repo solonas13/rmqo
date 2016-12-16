@@ -1,5 +1,5 @@
 /**
-    rmqo: Answering a small batch of RMQs in practice
+    rmqo: Range Minimum Queries Offline
     Copyright (C) 2016 Mai Alzamel and Solon P. Pissis
 
     This program is free software: you can redistribute it and/or modify
