@@ -61,7 +61,7 @@ A program to answer a batch of q randomly generated RMQs in a randomly generated
 cd bench
 
 make -f Makefile.rmq-bench.gcc
-./rmq-bench 100000000 10000
+./rmq-bench <int n> <int q>
 ```
 
 
