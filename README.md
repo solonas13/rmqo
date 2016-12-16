@@ -39,7 +39,7 @@ make install
 Usage
 --------
 
-Please check the `example-rmq.cc` file in examples.
+Please check the `example-rmq.cc` file in the examples folder.
 
 Examples: Answering RMQs or LCA queries
 --------
