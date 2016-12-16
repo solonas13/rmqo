@@ -4,10 +4,10 @@ CLEANEXTS   = o a
 # Specify the target file and the install directory
 OUTPUTFILE  = librmqo.a
 INCLUDEFILE  = rmq-offline.h
-INSTALLDIR1  = ../librmqo/lib
-INSTALLDIR2  = ../librmqo/include
+INSTALLDIR1  = ./librmqo/lib
+INSTALLDIR2  = ./librmqo/include
 
-CFLAGS= -g -D_USE_64 -msse3 -O3 -fomit-frame-pointer -funroll-loops 
+CFLAGS= -g -D_USE_64 -msse4.2 -O3 -fomit-frame-pointer -funroll-loops 
  
 LFLAGS= -std=c++11 -O3 -DNDEBUG 
 
@@ -37,6 +37,7 @@ install:
 .PHONY: clean 
 clean:
 	for file in $(CLEANEXTS); do rm -f *.$$file; done
+	rm -r librmqo
 
 # Indicate dependencies of .cc files on .hpp files
 rmq-offline.o: rmq-offline.h
