@@ -47,12 +47,23 @@ Examples: Answering RMQs or LCA queries
 ```
 cd examples
 
-make -f Makefile.RMQ.gcc
+make -f Makefile.rmq.gcc
 ./example-rmq
 
-make -f Makefile.LCA.gcc
+make -f Makefile.lca.gcc
 ./example-lca
 ```
+Benchmark
+--------
+
+A program to answer a batch of randomly generated RMQs in a randomly generated array of size n.
+```
+cd examples
+
+make -f Makefile.rmq-bench.gcc
+./rmq-bench 100000000 10000
+```
+
 
 Citation
 --------
