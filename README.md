@@ -53,7 +53,7 @@ Citation
 --------
 
 ```
-M. Alzamel, P. Charalampopoulos, C. S. Iliopoulos, S. P. Pissis: 
+M. Alzamel, P. Charalampopoulos, C. S. Iliopoulos, and S. P. Pissis: 
 How to answer a small batch of RMQs or LCA queries in practice. 
 (in preparation)
 ```
