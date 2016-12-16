@@ -12,6 +12,12 @@ double gettime( void )
 
 int main( int argc, char *argv[] )
 {
+    if ( argc != 3 )
+    {	
+    	fprintf( stderr, "%s [INT n] [INT q]\n", argv[0]);
+        return ( 1 ); 
+    }
+
     double start, end;
     srand( time(NULL) );
 
@@ -52,7 +58,7 @@ int main( int argc, char *argv[] )
     start = gettime();
     rmq_offline ( A, n, Q, q );
     end = gettime();
-    fprintf( stderr, "%lf\n", end - start);
+    fprintf( stderr, "%lf secs\n", end - start);
 
     free ( A );
     free ( Q );
