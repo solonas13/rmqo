@@ -57,7 +57,7 @@ make -f Makefile.lca.gcc
 Benchmark
 --------
 
-A simple program that uses rmqo library to answer a batch of <i>q</i> randomly generated RMQs in a randomly generated array of size <i>n</i>.
+A simple program that generates a random array of size <i>n</i> and uses the rmqo library to answer a batch of <i>q</i> randomly generated RMQs.
 ```
 cd bench
 make -f Makefile.rmq-bench.gcc
