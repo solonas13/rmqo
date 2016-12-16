@@ -31,7 +31,7 @@ Installation
 
 ```
 git clone https://github.com/solonas13/rmqo.git
-cd rmqo/rmqo/
+cd rmqo
 make
 make install
 ```
@@ -41,6 +41,7 @@ Example 1: Answering RMQs
 --------
 
 ```
+cd examples
 make -f Makefile.RMQ.gcc
 ./example-rmq
 ```
@@ -49,6 +50,7 @@ Example 2: Answering LCA queries
 --------
 
 ```
+cd examples
 make -f Makefile.LCA.gcc
 ./example-lca
 ```
