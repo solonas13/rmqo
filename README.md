@@ -19,6 +19,12 @@ With <i>small batch</i>, we mean that the number <i>q</i> of queries is <i>o(n)<
 and we have them all at hand.  It is therefore not relevant to build an <i>O(n)</i>-sized data structure 
 or spend <i>O(n)</i> time to build a more succinct one. It is well-known, among practitioners and elsewhere, that these data structures for on-line querying carry high constants in their pre-processing and querying time. We would thus like to answer this batch efficiently in practice. With <i>efficiently in practice</i>, we mean that we (ultimately) want to spend <i>n + O(q)</i> time and <i>O(q)</i> space. 
 
+Requirements
+--------
+
+* A 64-bit operating system.
+* A C++11 ready compiler such as `g++` version 4.9 or higher.
+* Processor of the system should support fast bit operations available in `SSE4.2.
 
 Installation
 --------
