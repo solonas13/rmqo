@@ -24,7 +24,8 @@ Installation
 --------
 
 ```
-cd rmqo
+git clone https://github.com/solonas13/rmqo.git
+cd rmqo/rmqo/
 make
 make install
 ```
