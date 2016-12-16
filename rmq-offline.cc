@@ -1,5 +1,5 @@
 /**
-    rmq-offline: Answering a small batch of RMQs in practice
+    rmqo: Answering a small batch of RMQs in practice
     Copyright (C) 2016 Mai Alzamel and Solon P. Pissis
 
     This program is free software: you can redistribute it and/or modify
@@ -17,10 +17,12 @@
 **/
 
 #include "rmq-offline.h"
-    
+
+/* It takes n + O(q log q) time and uses O(q) extra space */ 
 INT rmq_offline ( INT * A, INT n, Query * Q, INT q )
 {
     INT s = (4 * q) + 1;
+    if ( s > n ) s = n;
     INT * AQ = ( INT* ) calloc( s , sizeof(INT) );
     INT * Af = ( INT* ) calloc( s , sizeof(INT) );
     Query * Q_Prime = ( Query * ) calloc(q, sizeof(Query));
@@ -59,9 +61,7 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
     for ( INT i = 0; i < q; i++ )	
     {
     	if ( Q[i] . L == Q[i] . R ) 
-	{
 		Q[i]. O = Q[i] . L;
-	}
         else
         {
 		INT s = flog2( Q_Prime[i] . R - Q_Prime[i] . L ); //get the id of the bucket
@@ -99,8 +99,7 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
 		if ( D[Q_Prime[i] . L] . a < D[Q_Prime[i] . R - r + 1] . a ) 
 			Q[i] . O = Af[D[Q_Prime[i] . L] . p]; 
 		else	
-			Q[i] . O = Af[D[Q_Prime[i] . R - r + 1] . p]
-; 
+			Q[i] . O = Af[D[Q_Prime[i] . R - r + 1] . p]; 
 		head = head -> next;
     	}
 	for ( INT i = 0; i < n; i++ )	
@@ -169,13 +168,12 @@ INT contract( INT * A, INT n, Query * Q, INT q, INT * AQ, INT * s, INT * Af, Que
     }
     free(l_1);
   
-  return 1;
+  return ( 1 );
 }
 
 INT recover ( INT * A, INT n, INT * AQ, INT s, INT * Af )
 {
-	for ( INT j = 0; j < s; j++ )
-		A[Af[j]] = AQ[j];
+	for ( INT j = 0; j < s; j++ )	A[Af[j]] = AQ[j];
   	return ( 1 );
 }
 
@@ -255,7 +253,7 @@ INT marking( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1 )
     
     for ( INT i = 0; i < 2 * q; i++) l_1[i] = NULL;
     
-    /*Changing the values of A with kth+Max*/
+    /* Changing the values of A with ( k + max ) */
     for ( INT m = 0; m < q; m++) 
     {
         

@@ -1,5 +1,5 @@
 /**
-    rmq-offline: Answering a small batch of RMQs in practice
+    rmqo: Answering a small batch of RMQs in practice
     Copyright (C) 2016 Mai Alzamel and Solon P. Pissis
 
     This program is free software: you can redistribute it and/or modify
