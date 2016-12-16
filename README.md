@@ -46,6 +46,7 @@ Examples: Answering RMQs or LCA queries
 
 ```
 cd examples
+
 make -f Makefile.RMQ.gcc
 ./example-rmq
 
