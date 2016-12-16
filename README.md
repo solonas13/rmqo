@@ -24,7 +24,7 @@ Requirements
 
 * A 64-bit operating system.
 * A C++11 ready compiler such as `g++` version 4.9 or higher.
-* Processor of the system should support fast bit operations available in `SSE4.2.
+* Processor of the system should support fast bit operations available in `SSE4.2`.
 
 Installation
 --------
