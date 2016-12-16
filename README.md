@@ -19,3 +19,12 @@ With <i>small batch</i>, we mean that the number <i>q</i> of queries is <i>o(n)<
 and we have them all at hand.  It is therefore not relevant to build an <i>O(n)</i>-sized data structure 
 or spend <i>O(n)</i> time to build a more succinct one. It is well-known, among practitioners and elsewhere, that these data structures for on-line querying carry high constants in their pre-processing and querying time. We would thus like to answer this batch efficiently in practice. With <i>efficiently in practice</i>, we mean that we (ultimately) want to spend <i>n + O(q)</i> time and <i>O(q)</i> space. 
 
+
+Example
+--------
+
+``
+make
+make install
+``
+
