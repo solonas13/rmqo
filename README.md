@@ -23,11 +23,9 @@ or spend <i>O(n)</i> time to build a more succinct one. It is well-known, among 
 Example 1: Answering RMQs
 --------
 
-``
+`
 cd rmqo
-
 make
-
 make install
-``
+`
 
