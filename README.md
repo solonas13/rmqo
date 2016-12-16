@@ -21,7 +21,7 @@ or spend <i>O(n)</i> time to build a more succinct one. It is well-known, among 
 Requirements
 --------
 
-* A 64-bit operating system.
+* A 64-bit GNU/Linux (or MAC) operating system.
 * A C++11 ready compiler such as `g++` version 4.9 or higher.
 * Processor of the system should support fast bit operations available in `SSE4.2`.
 
