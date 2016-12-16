@@ -61,8 +61,9 @@ A simple program that generates a random array of size <i>n</i> and uses the rmq
 ```
 cd bench
 make -f Makefile.rmq-bench.gcc
-./rmq-bench 100000000 10000
+./rmq-bench 100000000 1000000
 ```
+The above run takes about 1 sec on a modern PC (Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz).
 
 Citation
 --------
