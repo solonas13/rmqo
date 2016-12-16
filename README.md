@@ -56,7 +56,7 @@ make -f Makefile.lca.gcc
 Benchmark
 --------
 
-A program to answer a batch of randomly generated RMQs in a randomly generated array of size n.
+A program to answer a batch of randomly generated RMQs in a randomly generated array.
 ```
 cd bench
 
