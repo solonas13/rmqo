@@ -57,4 +57,8 @@ M. Alzamel, P. Charalampopoulos, C. S. Iliopoulos, S. P. Pissis:
 How to answer a small batch of RMQs or LCA queries in practice. 
 (in preparation)
 ```
-<b>License</b>: GNU GPLv3 License; Copyright (C) 2016 Mai Alzamel and Solon P. Pissis
+
+License
+-------- 
+
+GNU GPLv3 License; Copyright (C) 2016 Mai Alzamel and Solon P. Pissis
