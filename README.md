@@ -58,7 +58,7 @@ Benchmark
 
 A program to answer a batch of randomly generated RMQs in a randomly generated array of size n.
 ```
-cd examples
+cd bench
 
 make -f Makefile.rmq-bench.gcc
 ./rmq-bench 100000000 10000
