@@ -61,7 +61,7 @@ cd bench
 make -f Makefile.rmq-bench.gcc
 ./rmq-bench 100000000 1000000
 ```
-The above run takes ~1.5 secs with a modern CPU; e.g., Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz. The same run using the sdsl-lite instead takes ~7 secs. 
+The above run takes ~1.5 secs with a modern CPU; e.g., Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz. 
 
 Citation
 --------
