@@ -44,4 +44,4 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
 INT contract( INT * A, INT n, Query * Q, INT q, INT * AQ, INT * s, INT * Af, Query * Q_Prime );
 INT recover ( INT * A, INT n, INT * AQ, INT s, INT * Af );
 INT create ( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1, INT * AQ, INT * s, INT * Af, Query * Q_Prime);
-INT marking( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1 );
+INT marking( INT * A, INT max, Query * Q, INT q, INT * l_0, List ** l_1 );

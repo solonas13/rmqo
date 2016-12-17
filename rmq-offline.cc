@@ -138,15 +138,15 @@ INT contract( INT * A, INT n, Query * Q, INT q, INT * AQ, INT * s, INT * Af, Que
     /* Defines an array to store the original values (of potential 2q indices) */
     INT * l_0 = ( INT* ) calloc( 2 * q, sizeof(INT) );
 
-    /*Defines an array to store linked lists */
+    /* Defines an array to store linked lists */
     List ** l_1 = ( List ** ) calloc( 2 * q , sizeof( List * ) );
 
-    /*find the Max value in array A*/
+    /* Find the max value in array A */
     INT max = A[0];
-    for( INT i = 1; i < n; i++ )	if(A[i]>max) max=A[i];
+    for( INT i = 1; i < n; i++ )	if( A[i] > max ) max = A[i];
 
     /* Marking */
-    marking( A, n, max, Q, q, l_0, l_1 );
+    marking( A, max, Q, q, l_0, l_1 );
 
     /* Create array AQ */
     create( A, n, max, Q, q, l_0, l_1, AQ, s, Af, Q_Prime );
@@ -172,12 +172,14 @@ INT contract( INT * A, INT n, Query * Q, INT q, INT * AQ, INT * s, INT * Af, Que
   return ( 1 );
 }
 
+/* Function takes O(s) = O(q) time and uses no extra space */ 
 INT recover ( INT * A, INT n, INT * AQ, INT s, INT * Af )
 {
 	for ( INT j = 0; j < s; j++ )	A[Af[j]] = AQ[j];
   	return ( 1 );
 }
 
+/* Function takes n + O(q) time and uses no extra space: it scans array A once */ 
 INT create ( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1, INT * AQ, INT * s, INT * Af, Query * Q_Prime)
 {
 
@@ -199,13 +201,13 @@ INT create ( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1, 
 				Q_Prime[l_1[A[i]%(2*q)]->pos] . L = t;
 			else
 				if ( Q_Prime[l_1[A[i]%(2*q)]->pos].R <= -1 )
-					Q_Prime[l_1[A[i]%(2*q)]->pos].R = t;
+					Q_Prime[l_1[A[i]%(2*q)]->pos] . R = t;
 		    
-			/*If there is a linked list */
+			/* If there is a linked list */
 			List * head = l_1[A[i]%(2*q)];
 			while ( head->next != NULL )
 			{
-				head = head->next;
+				head = head -> next;
 				if ( Q_Prime[head->pos].L <= -1 )
 					Q_Prime[head->pos].L = t;
 				else
@@ -219,7 +221,7 @@ INT create ( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1, 
 		}
 		else
 		{	
-			/*To find the min between non-marked positions (after a marked position) and throw away anything after the last marked position*/
+			/* To find the min between non-marked positions (after a marked position) and throw away anything after the last marked position */
 			if ( i > 0 && A[i - 1] > max )
 			{
 			      min = A[i];
@@ -232,7 +234,7 @@ INT create ( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1, 
 			       temp = i;  
 			}
 
-			/*copy the marked position to AQ and store the original position in AF*/
+			/* copy the marked position to AQ and store the original position in AF */
 			if ( i < n - 1 && A[i+1]> max )
 			{
 				AQ[t] = min;
@@ -248,7 +250,8 @@ INT create ( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1, 
 }
     
 
-INT marking( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1 )
+/* Function takes O(q) time and uses O(q) extra space */ 
+INT marking( INT * A, INT max, Query * Q, INT q, INT * l_0, List ** l_1 )
 {
     INT k = 1; //counter
     
@@ -256,60 +259,58 @@ INT marking( INT * A, INT n, INT max, Query * Q, INT q, INT * l_0, List ** l_1 )
     
     /* Changing the values of A with ( k + max ) */
     for ( INT m = 0; m < q; m++) 
-    {
-        
-        
+    {        
         /****************************Adding all i's indices in queries in L_1************************/
-        INT start_point = Q[m].L;
+        INT start_point = Q[m] . L;
 
         /*Position is marked add the rest of the queries in the Linked list at the front*/
         if( A[start_point] > max )
         {
             //add to the front
             List * head = l_1[(A[start_point])%(2*q)];
-            List * newNode = ( List * )malloc(sizeof(List));
-            newNode->pos=m;
-            newNode->next=head;
-            l_1[(A[start_point])%(2*q)]=newNode;
+            List * newNode = ( List * ) malloc( sizeof(List) );
+            newNode->pos = m;
+            newNode->next = head;
+            l_1[(A[start_point])%(2*q)] = newNode;
          }
         
-        if(A[start_point]<= max)
+        if(A[start_point] <= max)
         {
-           l_0[((k+max) %(2*q))]=A[start_point];
+           l_0[((k+max) %(2*q))] = A[start_point];
            A[start_point] = k + max; // update with counter
            //start a linked list
            l_1[((k+max) %(2*q))] = ( List * )malloc(sizeof(List));
            List * newNode = ( List * ) malloc(sizeof(List));
-           newNode->pos=m;
-           newNode->next=NULL;
-           l_1[((k+max) %(2*q))]= newNode;
+           newNode->pos = m;
+           newNode->next = NULL;
+           l_1[((k+max) %(2*q))] = newNode;
            k++;
         }
     
         /****************************Adding all j's indices in queries in L_1************************/
-        INT end_point=Q[m].R;
+        INT end_point = Q[m].R;
 
         //Position is marked add the rest of the queries in the Linked list at the front
-        if(A[end_point]> max)
+        if(A[end_point] > max)
         {
             //add to the front
             List * head = l_1[(A[end_point])%(2*q)]; 
-            List * newNode=(List*)malloc(sizeof(List));
-            newNode->pos=m;
-            newNode->next=head;
-            l_1[(A[end_point])%(2*q)]=newNode;
+            List * newNode = ( List * ) malloc(sizeof(List));
+            newNode->pos = m;
+            newNode->next = head;
+            l_1[(A[end_point])%(2*q)] = newNode;
         }
         
-        if(A[end_point]<= max){
-            
-            l_0[((k+max) %(2*q))]=A[end_point];
-            A[end_point]=k + max;
+        if( A[end_point]<= max )
+        {            
+            l_0[((k+max) %(2*q))] = A[end_point];
+            A[end_point] = k + max;
             //start a linked list
             l_1[((k+max) %(2*q))] = (List*)malloc(sizeof(List));
-            List * newNode= (List*)malloc(sizeof(List));
-            newNode->pos=m;
-            newNode->next=NULL;
-            l_1[((k+max) %(2*q))]= newNode;
+            List * newNode = (List*)malloc(sizeof(List));
+            newNode->pos = m;
+            newNode->next = NULL;
+            l_1[((k+max) %(2*q))] = newNode;
             k++;
         }
         
