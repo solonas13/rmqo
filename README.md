@@ -1,6 +1,6 @@
 # rmqo
 
-What is it?
+Description
 -----------
 
 <i>Range Minimum Queries Offline</i> (rmqo) is a fast C++11
