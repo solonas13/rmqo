@@ -9,7 +9,7 @@ The time complexity of the implemented algorithm is <i>n + O(q log q)</i> and th
 extra space used is <i>O(q)</i>; where <i>n</i> is the size of the input array and <i>q</i> is the queries number. Note that we write <b>n</b> (instead of O(n)) to stress that the number of operations per entry of the 
 input array is a very small constant. Specifically, we only scan the input array twice.
 
-Why rmqo?
+Why and when should I use rmqo?
 --------
 
 Answering a small batch of RMQs or LCA queries is a core computational task in many real-world applications. 
