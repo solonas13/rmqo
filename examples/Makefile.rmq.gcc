@@ -1,4 +1,4 @@
-MF=     Makefile.RMQ.gcc
+MF=     Makefile.rmq.gcc
  
 CC=     g++
  
@@ -10,7 +10,7 @@ EXE=    example-rmq
  
 SRC=    example-rmq.cc
  
-HD=     Makefile.RMQ.gcc
+HD=     Makefile.rmq.gcc
  
 # 
 # No need to edit below this line 

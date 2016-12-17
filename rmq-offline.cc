@@ -18,7 +18,7 @@
 
 #include "rmq-offline.h"
 
-/* It takes n + O(q log q) time and uses O(q) extra space */ 
+/* Function takes n + O(q log q) time and uses O(q) extra space */ 
 INT rmq_offline ( INT * A, INT n, Query * Q, INT q )
 {
     INT s = (4 * q) + 1;
@@ -38,9 +38,10 @@ INT rmq_offline ( INT * A, INT n, Query * Q, INT q )
     return ( 1 );
 }
 
+/* Function takes O(q log q) time and uses O(q) extra space */ 
 INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
 {
-    /* Calculates the max number t of buckets based on Q_Prime */
+    /* Compute the max number t of buckets based on the queries in Q_Prime: in fact the function takes O (qt) time. */
     INT t = 0;	
     for ( INT i = 0; i < q; i++ )	
     {
@@ -54,25 +55,22 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
     t = t + 1;
 
     /* Bucket sort the queries */
-    INT * c = ( INT * ) calloc( t , sizeof( INT ) );
     List ** B = ( List ** ) calloc( t , sizeof( List * ) );
     for ( INT i = 0; i < t; i++) B[i] = NULL;
 
     for ( INT i = 0; i < q; i++ )	
     {
-    	if ( Q[i] . L == Q[i] . R ) 
-		Q[i]. O = Q[i] . L;
-        else
+    	Q[i]. O = Q[i] . L;
+    	if ( Q[i] . L != Q[i] . R )
         {
 		INT s = flog2( Q_Prime[i] . R - Q_Prime[i] . L ); //get the id of the bucket
-		if ( c[s] == 0 ) //if the bucket is empty start a linked list
+		if ( B[s] == NULL ) //if the bucket is empty start a linked list
 		{
 			B[s] = ( List * ) malloc( sizeof(List) );
            		List * newNode= ( List * ) malloc(sizeof(List));
            		newNode -> pos  = i;
            		newNode -> next = NULL;
 			B[s] = newNode;
-			c[s]++;
 		}
 		else		//add query id to the front of the linked list
 		{
@@ -84,7 +82,6 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
 		}
 	}
     }
-    free( c );
 
     Tuples * D = ( Tuples * ) calloc( ( INT ) n, sizeof( Tuples ) );
     for ( INT i = 0; i < n; i++ )	{D[i] . a = A[i]; D[i] . p = i;}

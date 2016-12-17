@@ -1,4 +1,4 @@
-MF=     Makefile.LCA.gcc
+MF=     Makefile.lca.gcc
  
 CC=     g++
  
@@ -10,7 +10,7 @@ EXE=    example-lca
  
 SRC=    example-lca.cc
  
-HD=     Makefile.LCA.gcc
+HD=     Makefile.lca.gcc
  
 # 
 # No need to edit below this line 
