@@ -83,8 +83,13 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
 	}
     }
 
+    /* Initialise the Tuples Array */
     Tuples * D = ( Tuples * ) calloc( ( INT ) n, sizeof( Tuples ) );
-    for ( INT i = 0; i < n; i++ )	{D[i] . a = A[i]; D[i] . p = i;}
+    for ( INT i = 0; i < n; i++ )	
+    {
+	D[i] . a = A[i]; 
+	D[i] . p = i;
+    }
     
     for ( INT k = 0; k < t; k++ )	
     {
@@ -93,10 +98,9 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
 	while ( head != NULL ) //loop through buckets
 	{
 		INT i = head -> pos;
+		Q[i] . O = Af[D[Q_Prime[i] . R - r + 1] . p]; 
 		if ( D[Q_Prime[i] . L] . a < D[Q_Prime[i] . R - r + 1] . a ) 
 			Q[i] . O = Af[D[Q_Prime[i] . L] . p]; 
-		else	
-			Q[i] . O = Af[D[Q_Prime[i] . R - r + 1] . p]; 
 		head = head -> next;
     	}
 	for ( INT i = 0; i < n; i++ )	
@@ -128,6 +132,7 @@ INT answer_rmqs ( INT * A, INT n, Query * Q, INT q, Query * Q_Prime,  INT * Af )
     return ( 1 );
 }
 
+/* Function takes O(q) time and uses O(q) extra space */ 
 INT contract( INT * A, INT n, Query * Q, INT q, INT * AQ, INT * s, INT * Af, Query * Q_Prime )
 {
     /* Defines an array to store the original values (of potential 2q indices) */
@@ -138,10 +143,9 @@ INT contract( INT * A, INT n, Query * Q, INT q, INT * AQ, INT * s, INT * Af, Que
 
     /*find the Max value in array A*/
     INT max = A[0];
-    for( INT i = 1; i < n; i++ )
-        if(A[i]>max) max=A[i];
+    for( INT i = 1; i < n; i++ )	if(A[i]>max) max=A[i];
 
-    /* Marking*/
+    /* Marking */
     marking( A, n, max, Q, q, l_0, l_1 );
 
     /* Create array AQ */
