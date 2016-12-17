@@ -13,13 +13,16 @@ Node* newNode( INT data);
 
 int main( int argc, char *argv[] )
 {
-        /*
-     We construct a binary tree :-
+	/*
+     		Let's construct a binary tree
             0
           /  \
          1    2
        /  \
-      3    4        */
+      3    4
+        
+
+	*/
  
     Node *root = newNode(0);
     root->left        = newNode(1);
