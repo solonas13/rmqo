@@ -31,6 +31,7 @@ cd rmqo
 make
 make install
 ```
+This installs the rmqo library into the `include` and `lib` directories in your working directory.
 
 Usage
 --------
