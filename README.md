@@ -40,7 +40,7 @@ Please check the `example-rmq.cc` file in the examples folder. Note that to make
 ```
 -I $(INSTALLDIR)/librmqo/include/ -L $(INSTALLDIR)/librmqo/lib/ -lrmqo
 ```
-where `$(INSTALLDIR)` is the directory where the library was installed.
+where `$(INSTALLDIR)` is the directory the library was installed.
 
 Examples 
 --------
