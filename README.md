@@ -31,11 +31,16 @@ cd rmqo
 make
 make install
 ```
+This installs the rmqo library into the `include` and `lib` directories in directory `rmqo`.
 
 Usage
 --------
 
-Please check the `example-rmq.cc` file in the examples folder.
+Please check the `example-rmq.cc` file in the examples folder. Note that to make use of the library in a program you have to link it in during compilation via
+```
+-I $(INSTALLDIR)/librmqo/include/ -L $(INSTALLDIR)/librmqo/lib/ -lrmqo
+```
+where `INSTALLDIR` is the directory the library was installed.
 
 Examples 
 --------
