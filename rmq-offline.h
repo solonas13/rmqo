@@ -38,7 +38,7 @@ struct Query
 /**
  * This is the only library function.
  *
- * @param A An array of type INT
+ * @param A A rewritable array of type INT
  * @param n The array size
  * @param Q An array of type Query
  * @param q The array size
