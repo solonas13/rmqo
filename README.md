@@ -36,9 +36,9 @@ This installs the rmqo library into the `include` and `lib` directories in direc
 Usage
 --------
 
-Please check the `example-rmq.cc` file in the examples folder. Note that to make use of the library in a program you have to link it in during compilation, e.g.
+Please check the `example-rmq.cc` file in the examples folder. Note that to make use of the library in a program you have to link it in during compilation via
 ```
-g++ -g -D_USE_64 -msse4.2 -O3 -fomit-frame-pointer -funroll-loops -c -std=c++11 -O3 -I ../librmqo/include/ -L ../librmqo/lib/ -lrmqo example-rmq.cc
+-I ../librmqo/include/ -L ../librmqo/lib/ -lrmqo
 ```
 Examples 
 --------
