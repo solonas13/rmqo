@@ -4,7 +4,7 @@
 struct Node
 {
     INT data;
-    Node* left, *right;
+    Node * left, * right;
 };
 
 void TreeToArray ( Node * node, INT * A, INT * i );
@@ -14,13 +14,12 @@ Node* newNode( INT data);
 int main( int argc, char *argv[] )
 {
 	/*
-     		Let's construct a binary tree
+     		Let's construct a binary tree!
             0
           /  \
          1    2
        /  \
       3    4
-        
 
 	*/
  
@@ -30,20 +29,21 @@ int main( int argc, char *argv[] )
     root->left->left  = newNode(3);
     root->left->right = newNode(4);
 
-    // LCA Queries to answer
+    // Some LCA Queries to answer: LCA(3,4), LCA(0,2), and LCA(1,2)
     INT q = 3;
     Query * Q = ( Query * ) calloc ( q, sizeof( Query ) );
-
     Q[0] . L = 3; Q[0] . R = 4;	
     Q[1] . L = 0; Q[1] . R = 2;
     Q[2] . L = 1; Q[1] . R = 2;
 
+    // Transform the tree to an array via a DFS in-order traversal
     INT n = 5;
     INT * A = ( INT* ) calloc( n , sizeof(INT) );
     INT k = 0;
     TreeToArray ( root, A, &k );
     deleteTree ( root );
 
+    // Record the indices of the node labels 0,1,...,4
     INT * invA = ( INT* ) calloc( n , sizeof(INT) );
     for ( INT i = 0; i < n; i ++ )  invA[A[i]] = i;
 
@@ -63,10 +63,13 @@ int main( int argc, char *argv[] )
     }
     free( invA );
  
+    // Answer the queries!
     rmq_offline ( A, n, Q_lca, q );
 
+    // Transform the RMQ answers back to node labels
     for ( INT i = 0; i < q; i++ )	Q[i] . O = A[Q_lca[i] . O];
 
+    // Printout the LCAs
     for ( INT i = 0; i < q; i++ )
     {	
       fprintf( stderr, "LCA(%ld,%ld)=%ld\n",
@@ -75,6 +78,7 @@ int main( int argc, char *argv[] )
                   Q[i].O);
     }		
 
+    // Free the memory
     free ( Q );
     free( Q_lca );
     free( A );
