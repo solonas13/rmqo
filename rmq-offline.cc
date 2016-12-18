@@ -16,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **/
 
-#include "rmq-offline.h"
+#include "utils.h"
 
 /* Function takes n + O(q log q) time and uses O(q) extra space */ 
 INT rmq_offline ( INT * A, INT n, Query * Q, INT q )

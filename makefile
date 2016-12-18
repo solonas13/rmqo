@@ -1,21 +1,21 @@
 # Specify extensions of files to delete when cleaning
-CLEANEXTS   = o a 
+CLEANEXTS    = o a 
 
 # Specify the target file and the install directory
-OUTPUTFILE  = librmqo.a
+OUTPUTFILE   = librmqo.a
 INCLUDEFILE  = rmq-offline.h
 INSTALLDIR1  = ./librmqo/lib
 INSTALLDIR2  = ./librmqo/include
 
-CFLAGS= -g -D_USE_64 -msse4.2 -O3 -fomit-frame-pointer -funroll-loops 
+CFLAGS = -g -D_USE_64 -msse4.2 -O3 -fomit-frame-pointer -funroll-loops 
  
-LFLAGS= -std=c++11 -O3 -DNDEBUG 
+LFLAGS = -std=c++11 -O3
 
 # Default target
 .PHONY: all
 all: $(OUTPUTFILE)
 
-# Build librmqoffline.a from rmq-offline.o
+# Build librmqo.a from rmq-offline.o
 $(OUTPUTFILE): rmq-offline.o
 	ar cr $@ $^
 	ranlib $@
@@ -39,5 +39,5 @@ clean:
 	for file in $(CLEANEXTS); do rm -f *.$$file; done
 	rm -r librmqo
 
-# Indicate dependencies of .cc files on .hpp files
-rmq-offline.o: rmq-offline.h
+# Indicate dependencies of .cc files on .h files
+rmq-offline.o: utils.h

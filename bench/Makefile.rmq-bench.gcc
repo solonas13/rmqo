@@ -1,10 +1,12 @@
+INSTALLDIR = ..
+
 MF=     Makefile.rmq-bench.gcc
  
 CC=     g++
  
 CFLAGS= -g -D_USE_64 -msse4.2 -O3 -fomit-frame-pointer -funroll-loops 
  
-LFLAGS= -std=c++11 -O3 -DNDEBUG -I ../librmqo/include/ -L ../librmqo/lib/ -lrmqo
+LFLAGS= -std=c++11 -O3 -I $(INSTALLDIR)/librmqo/include/ -L $(INSTALLDIR)/librmqo/lib/ -lrmqo
  
 EXE=    rmq-bench
  
