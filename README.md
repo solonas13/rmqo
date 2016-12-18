@@ -36,7 +36,7 @@ This installs the rmqo library into the `include` and `lib` directories in direc
 Usage
 --------
 
-Please check the `example-rmq.cc` file in the examples folder. Note that to make use of the library in a program you have to link it in during compilation via
+Check the `rmq-offline.h` file or the `example-rmq.cc` file in the examples folder. Note that to make use of the library in a program you have to link it in during compilation via
 ```
 -I $(INSTALLDIR)/librmqo/include/ -L $(INSTALLDIR)/librmqo/lib/ -lrmqo
 ```
