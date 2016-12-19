@@ -34,6 +34,7 @@ int main( int argc, char *argv[] )
     INT * R = ( INT * ) calloc( n , sizeof(INT) );
     R[0] = 0; R[1] = 2; R[2] = 3; R[3] = 4; R[4] = 1;
 
+    // Translate the LCA queries to RMQs
     Query * Q = ( Query * ) calloc( q , sizeof( Query ) );
     for ( INT i = 0; i < q; i ++ )  
     {
@@ -52,7 +53,7 @@ int main( int argc, char *argv[] )
     // Answer the queries!
     rmq_offline ( L, s, Q, q );
 
-    // Transform the RMQ answers back to node labels
+    // Transform the RMQ answers back to LCA answers
     for ( INT i = 0; i < q; i++ )	Q_lca[i] . O = E[Q[i] . O];
 
     // Printout the LCAs
@@ -66,11 +67,10 @@ int main( int argc, char *argv[] )
 
     // Free the memory
     free ( Q );
-    free( Q_lca );
-    free( L );
-    free( E );
-    free( R );
-
+    free ( Q_lca );
+    free ( L );
+    free ( E );
+    free ( R );
 
     return ( 0 );
 }
