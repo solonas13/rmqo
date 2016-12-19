@@ -10,6 +10,7 @@ int main( int argc, char *argv[] )
     A[0] = 4; A[1] = 3; A[2] = 5; A[3] = 9; A[4] = 8;
     A[5] = 1; A[6] = 2; A[7] = 0; A[8] = 6; A[9] = 7;
     
+    // Print out the array
     for ( INT i = 0; i < n; i++ )
     {	
       fprintf( stderr, "%ld ", A[i]);
@@ -26,7 +27,7 @@ int main( int argc, char *argv[] )
     // Answer the queries!
     rmq_offline ( A, n, Q, q );
 
-    // Printout the answers
+    // Print out the answers
     for ( INT i = 0; i < q; i++ )
     {	
       fprintf( stderr, "RMQ(%ld,%ld)=%ld\n",

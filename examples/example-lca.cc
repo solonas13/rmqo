@@ -4,7 +4,7 @@
 int main( int argc, char *argv[] )
 {
 	/*
-     		Let's construct the Cartesian tree of sequence 4, 1, 2, 3, 0
+     		Let's consider the Cartesian tree of sequence 4, 1, 2, 3, 0
            0
           /  
          4    
@@ -14,6 +14,8 @@ int main( int argc, char *argv[] )
              2
               \
                3	
+               
+               In fact we will consider its Euler tour representation...
 	*/
  
     // Some LCA Queries to answer: LCA(3,4), LCA(0,2), LCA(1,2), and LCA(2,3)
@@ -24,7 +26,7 @@ int main( int argc, char *argv[] )
     Q_lca[2] . L = 1; Q_lca[2] . R = 2;
     Q_lca[3] . L = 2; Q_lca[3] . R = 3;
 
-    // Write down the Euler tour, the depths array, and the representative array
+    // Write down the Euler tour array, the depths array, and the representative array
     INT n = 5;
     INT s = (2 * n)  - 1;
     INT * E = ( INT * ) calloc( s , sizeof(INT) );
@@ -56,7 +58,7 @@ int main( int argc, char *argv[] )
     // Transform the RMQ answers back to LCA answers
     for ( INT i = 0; i < q; i++ )	Q_lca[i] . O = E[Q[i] . O];
 
-    // Printout the LCAs
+    // Print out the LCAs
     for ( INT i = 0; i < q; i++ )
     {	
       fprintf( stderr, "LCA(%ld,%ld)=%ld\n",
