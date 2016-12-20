@@ -4,7 +4,7 @@
 int main( int argc, char *argv[] )
 {
 	/*
-     		Let's consider the Cartesian tree of sequence 4, 1, 2, 3, 0
+     		Let's consider the following binary tree:
            0
           /  
          4    
