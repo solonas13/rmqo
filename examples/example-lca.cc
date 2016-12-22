@@ -17,10 +17,11 @@ int main( int argc, char *argv[] )
          	      \
                        3	
                
-        In fact we will consider its Euler tour representation...
+        In fact we will consider its Euler tour representation (Read the "The LCA Problem Revisited" by Bender and Farach-Colton!)...
+
 	*/
 
-    // Write down the Euler tour array, the depths array, and the representative array
+    // Write down the Euler tour array, the Levels array, and the Representative array of the tree
     INT n = 6;
     INT s = (2 * n)  - 1;
     INT * E = ( INT * ) calloc( s , sizeof(INT) );
@@ -58,7 +59,7 @@ int main( int argc, char *argv[] )
     // Answer the queries!
     rmq_offline ( L, s, Q, q );
 
-    // Transform the RMQ answers back to LCA answers
+    // Translate the RMQ answers back to LCA answers
     for ( INT i = 0; i < q; i++ )	Q_lca[i] . O = E[Q[i] . O];
 
     // Print out the LCAs
