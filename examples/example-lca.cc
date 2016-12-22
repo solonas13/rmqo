@@ -17,7 +17,8 @@ int main( int argc, char *argv[] )
          	      \
                        3	
                
-        In fact we will consider its Euler tour representation (Read the "The LCA Problem Revisited" by Bender and Farach-Colton!)...
+        In fact we will consider its Euler tour representation... 
+        (Read "Michael A. Bender, Martin Farach-Colton: The LCA Problem Revisited. LATIN 2000: 88-94")
 
 	*/
 
