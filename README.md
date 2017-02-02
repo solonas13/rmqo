@@ -60,13 +60,13 @@ make -f Makefile.lca.gcc
 Benchmark
 --------
 
-A simple program that generates a random array of size <i>n</i>=100,000,000 and uses the rmqo library to answer a batch of <i>q</i>=1,000,000 randomly generated RMQs.
+A simple program that generates a random array of size <i>n</i> and uses the rmqo library to answer a batch of <i>q</i> randomly generated RMQs.
 ```
 cd bench
 make -f Makefile.rmq-bench.gcc
 ./rmq-bench 100000000 1000000
 ```
-The above run takes ~1.5 secs with a modern CPU; e.g., with Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz. 
+The above run for <i>n</i>=100,000,000 and <i>q</i>=1,000,000 takes ~1.5 secs with a modern CPU; e.g., with Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz. 
 
 Citation
 --------
