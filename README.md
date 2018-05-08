@@ -74,7 +74,7 @@ Citation
 ```
 M. Alzamel, P. Charalampopoulos, C. S. Iliopoulos, and S. P. Pissis: 
 How to answer a small batch of RMQs or LCA queries in practice. 
-IWOCA 2017 (accepted)
+IWOCA 2017: Combinatorial Algorithms pp 343-355
 ```
 
 License
